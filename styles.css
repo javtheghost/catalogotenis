@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Sección Gorras + Category Tabs
+   CATÁLOGO DE TENIS — Modo Oscuro + Carga JSON + Ocultar Tallas en PDF
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -141,7 +141,7 @@ body {
   line-height: 1.5;
 }
 
-/* ── PESTAÑAS DE CATEGORÍA (TENIS / GORRAS) ── */
+/* ── PESTAÑAS DE CATEGORÍA ── */
 .category-tabs-bar {
   background: #121212;
   border-bottom: 1px solid var(--border);
@@ -522,16 +522,90 @@ body {
   .category-tabs { width: 100%; justify-content: space-around; }
 }
 
-/* ── IMPRESIÓN / EXPORTACIÓN PDF ── */
+/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN ── */
+@page {
+  margin: 0;
+  size: auto;
+}
+
+/* ── EXPORTACIÓN A PDF EN FONDO NEGRO Y SIN TALLAS ── */
 @media print {
-  body { background: #ffffff !important; color: #000000 !important; }
-  .top-social-bar, .category-tabs-bar, .controls, .results-bar, .whatsapp-float { display: none !important; }
-  .site-header { padding: 20px; border-bottom: 2px solid black; background: white; }
-  .header-title, .card-name { color: #000000 !important; }
-  .catalog-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 16px; }
-  .card { break-inside: avoid; background: white !important; border: 1px solid #ccc !important; }
-  .card:hover { transform: none; box-shadow: none; }
-  .card-num { background: #000000 !important; color: #ffffff !important; }
-  .category-divider-banner { background: #f0f0f0 !important; border: 2px solid black !important; color: black !important; }
-  .divider-title { color: black !important; }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .top-social-bar, .category-tabs-bar, .controls, .results-bar, .whatsapp-float {
+    display: none !important;
+  }
+
+  /* Ocultar el texto de tallas y contador de tallas en el PDF */
+  .card-sizes-count,
+  .card-sizes-list {
+    display: none !important;
+  }
+
+  .site-header {
+    padding: 32px 24px 20px !important;
+    border-bottom: 1px solid #222222 !important;
+    background: #0d0d0d !important;
+  }
+
+  .header-title {
+    color: #ffffff !important;
+  }
+
+  .header-subtitle {
+    color: #8e8e93 !important;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    padding: 24px !important;
+    background-color: #0a0a0a !important;
+  }
+
+  .card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    background: #141414 !important;
+    border: 1px solid #222222 !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  .card-name {
+    color: #ffffff !important;
+    margin-bottom: 0 !important;
+  }
+
+  .card-brand {
+    color: #8e8e93 !important;
+  }
+
+  .card-num {
+    background: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .category-divider-banner {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    background: #141414 !important;
+    border: 1.5px solid #ff5500 !important;
+    color: #ffffff !important;
+  }
+
+  .divider-title {
+    color: #ffffff !important;
+  }
 }
