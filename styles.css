@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Estructura Completa Ordenada
+   CATÁLOGO DE TENIS — Modo Oscuro + Sin Marca en la Tarjeta
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -438,17 +438,9 @@ body {
 
 .card-top-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;    /* Conteo de tallas alineado a la derecha */
   align-items: center;
   margin-bottom: 6px;
-}
-
-.card-brand {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  text-transform: uppercase;
 }
 
 .card-sizes-count {
@@ -650,10 +642,6 @@ body {
   .card-name {
     color: #ffffff !important;
     margin-bottom: 4px !important;
-  }
-
-  .card-brand {
-    color: #8e8e93 !important;
   }
 
   .card-num {
