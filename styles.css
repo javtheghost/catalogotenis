@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Impresión PDF Full Black + Borde Cards + Espaciado Logo
+   CATÁLOGO DE TENIS — Modo Oscuro + Tallas Visibles en Web y PDF
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -435,15 +435,15 @@ body {
   letter-spacing: 0.03em;
   color: var(--text-primary);
   line-height: 1.15;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-transform: uppercase;
 }
 
 .card-sizes-list {
   font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  color: #b0b0b0;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 /* ── BOTÓN FLOTANTE DE WHATSAPP ── */
@@ -521,7 +521,7 @@ body {
   margin: 0;
 }
 
-/* ── EXPORTACIÓN A PDF EN FONDO NEGRO COMPLETO (FULL BLACK PAGE) ── */
+/* ── EXPORTACIÓN A PDF EN FONDO NEGRO COMPLETO Y CON TALLAS VISIBLES ── */
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -540,10 +540,20 @@ body {
     display: none !important;
   }
 
-  /* Ocultar el texto de tallas y contador de tallas en el PDF */
-  .card-sizes-count,
+  /* MOSTRAR TALLAS VISIBLES EN EL PDF CON ALTO CONTRASTE */
+  .card-sizes-count {
+    display: inline-block !important;
+    color: #ff5500 !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+  }
+
   .card-sizes-list {
-    display: none !important;
+    display: block !important;
+    color: #b0b0b0 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    margin-top: 4px !important;
   }
 
   .site-header {
@@ -596,7 +606,7 @@ body {
 
   .card-name {
     color: #ffffff !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 4px !important;
   }
 
   .card-brand {
