@@ -1,3 +1,5 @@
-# Opcional: ignorar archivos temporales de extracción si se requiere
-# .DS_Store
+# Archivos ignorados para no subir a GitHub (privados)
+*.py
+*.json
+*.pdf
 .DS_Store
