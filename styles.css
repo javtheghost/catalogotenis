@@ -1,0 +1,537 @@
+/* =========================================================
+   CATÁLOGO DE TENIS — Modo Oscuro + Sección Gorras + Category Tabs
+   ========================================================= */
+
+/* ── Tokens Tema Oscuro ── */
+:root {
+  --bg: #0a0a0a;              /* Fondo negro elegante */
+  --bg-card: #141414;         /* Tarjeta gris oscuro */
+  --bg-card-hover: #1e1e1e;
+  --text-primary: #ffffff;    /* Texto blanco */
+  --text-muted: #8e8e93;      /* Texto secundario gris */
+  --accent: #ff5500;          /* Naranja neón Suelamanía */
+  --accent-hover: #ff7733;
+  --border: #222222;          /* Bordes discretos */
+  --border-dark: #333333;
+  --font-display: 'Bebas Neue', 'Arial Black', sans-serif;
+  --font-body: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --radius: 8px;
+  --shadow: 0 4px 14px rgba(0,0,0,0.6);
+  --shadow-hover: 0 12px 32px rgba(255,85,0,0.22);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── BARRA SOCIAL SUPERIOR ── */
+.top-social-bar {
+  background: #111111;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 48px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #1a1a1a;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,85,0,0.3);
+}
+
+.social-btn svg {
+  transition: transform 0.2s;
+}
+
+.social-btn:hover svg {
+  transform: scale(1.15);
+}
+
+/* ── HEADER CENTRADO CON LOGO ── */
+.site-header {
+  padding: 40px 24px 32px;
+  border-bottom: 1px solid var(--border);
+  background: #0d0d0d;
+}
+
+.centered-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.logo-wrapper {
+  margin-bottom: 16px;
+}
+
+.brand-logo {
+  max-width: 140px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+  display: block;
+}
+
+.header-tag {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.header-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── PESTAÑAS DE CATEGORÍA (TENIS / GORRAS) ── */
+.category-tabs-bar {
+  background: #121212;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 12px;
+  background: #0a0a0a;
+  padding: 6px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+}
+
+.cat-tab {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 10px 22px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.04em;
+}
+
+.cat-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cat-tab.active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 85, 0, 0.4);
+}
+
+/* ── CONTROLES Y FILTROS ── */
+.controls {
+  padding: 24px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: #0f0f0f;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-wrap {
+  width: 100%;
+  max-width: 440px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 18px;
+  border: 1.5px solid var(--border-dark);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.2);
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border-dark);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  overflow: hidden;
+  min-width: 260px;
+}
+
+.filter-label {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+  border-right: 1.5px solid var(--border-dark);
+  background: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-select {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  background: transparent;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.filter-select option {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+/* ── BARRA DE RESULTADOS ── */
+.results-bar {
+  padding: 16px 48px;
+  background: #0a0a0a;
+}
+
+#results-count {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* ── GRID DE PRODUCTOS CON GAP ── */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 48px 48px;
+}
+
+/* ── BANNER DIVISOR DE SECCIÓN GORRAS ── */
+.category-divider-banner {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%);
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  padding: 40px 32px;
+  margin: 24px 0 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(255, 85, 0, 0.15);
+}
+
+.divider-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.divider-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  margin: 6px 0;
+}
+
+.divider-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── CARD EN MODO OSCURO CON BORDES REDONDEADOS ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  z-index: 5;
+  transform: translateY(-6px);
+}
+
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #181818;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.card:hover .card-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* Badge Número de Producto */
+.card-num {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Badge Categoría */
+.card-cat-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 85, 0, 0.3);
+}
+
+/* Detalle del producto */
+.card-info {
+  padding: 16px;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.card-brand {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.card-sizes-count {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.card-sizes-list {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* ── BOTÓN FLOTANTE DE WHATSAPP ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #111111;
+  color: #ffffff;
+  border: 1.5px solid var(--accent);
+  padding: 12px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+  z-index: 100;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-float:hover {
+  background: var(--accent);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(255, 85, 0, 0.4);
+}
+
+.whatsapp-float svg {
+  color: #25d366;
+  transition: color 0.2s;
+}
+
+.whatsapp-float:hover svg {
+  color: #ffffff;
+}
+
+/* ── NO RESULTS ── */
+.no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 48px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .catalog-grid { grid-template-columns: repeat(3, 1fr); padding: 0 24px 32px; gap: 16px; }
+  .results-bar { padding: 14px 24px; }
+  .controls { padding: 20px 24px; }
+  .category-tabs-bar { padding: 12px 20px; }
+}
+
+@media (max-width: 768px) {
+  .top-social-bar { padding: 10px 20px; justify-content: center; }
+  .site-header { padding: 28px 20px; }
+  .brand-logo { max-width: 110px; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); padding: 0 16px 24px; gap: 12px; }
+  .results-bar { padding: 12px 16px; }
+  .whatsapp-float { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 12px; }
+  .cat-tab { padding: 8px 14px; font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  .catalog-grid { grid-template-columns: 1fr; }
+  .filter-group { min-width: 100%; }
+  .social-links { width: 100%; justify-content: center; }
+  .category-tabs { width: 100%; justify-content: space-around; }
+}
+
+/* ── IMPRESIÓN / EXPORTACIÓN PDF ── */
+@media print {
+  body { background: #ffffff !important; color: #000000 !important; }
+  .top-social-bar, .category-tabs-bar, .controls, .results-bar, .whatsapp-float { display: none !important; }
+  .site-header { padding: 20px; border-bottom: 2px solid black; background: white; }
+  .header-title, .card-name { color: #000000 !important; }
+  .catalog-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 16px; }
+  .card { break-inside: avoid; background: white !important; border: 1px solid #ccc !important; }
+  .card:hover { transform: none; box-shadow: none; }
+  .card-num { background: #000000 !important; color: #ffffff !important; }
+  .category-divider-banner { background: #f0f0f0 !important; border: 2px solid black !important; color: black !important; }
+  .divider-title { color: black !important; }
+}

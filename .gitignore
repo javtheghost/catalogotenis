@@ -1,0 +1,3 @@
+# Opcional: ignorar archivos temporales de extracción si se requiere
+# .DS_Store
+.DS_Store
