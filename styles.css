@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Redes Arriba del Logo + Margen Top PDF
+   CATÁLOGO DE TENIS — Modo Oscuro + Impresión PDF Full Black + Borde Cards + Espaciado Logo
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -56,13 +56,13 @@ body {
   margin: 0 auto;
 }
 
-/* Redes Sociales Arriba del Logo */
+/* Redes Sociales Arriba del Logo con mas separación */
 .header-social-links {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .social-btn {
@@ -97,7 +97,8 @@ body {
 }
 
 .logo-wrapper {
-  margin-bottom: 16px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .brand-logo {
@@ -325,10 +326,10 @@ body {
   color: var(--text-muted);
 }
 
-/* ── CARD EN MODO OSCURO CON BORDES REDONDEADOS ── */
+/* ── CARD EN MODO OSCURO CON BORDES DEFINIDOS ── */
 .card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border-dark);
   border-radius: var(--radius);
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
@@ -515,15 +516,12 @@ body {
   .category-tabs { width: 100%; justify-content: space-around; }
 }
 
-/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN Y MARGEN TOP PARA PDF ── */
+/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN FULL BLEED (SIN BORDES BLANCOS) ── */
 @page {
-  margin-top: 18mm;            /* Margen superior amplio en CADA página del PDF */
-  margin-bottom: 14mm;
-  margin-left: 10mm;
-  margin-right: 10mm;
+  margin: 0;
 }
 
-/* ── EXPORTACIÓN A PDF EN FONDO NEGRO Y SIN TALLAS ── */
+/* ── EXPORTACIÓN A PDF EN FONDO NEGRO COMPLETO (FULL BLACK PAGE) ── */
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -535,6 +533,7 @@ body {
     color: #ffffff !important;
     margin: 0 !important;
     padding: 0 !important;
+    min-height: 100vh !important;
   }
 
   .category-tabs-bar, .controls, .results-bar, .whatsapp-float {
@@ -548,15 +547,25 @@ body {
   }
 
   .site-header {
-    padding: 24px 24px 16px !important;
+    padding: 40px 24px 24px !important;
     border-bottom: 1px solid #222222 !important;
     background: #0d0d0d !important;
   }
 
   .header-social-links {
     display: flex !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 28px !important;
     justify-content: center !important;
+  }
+
+  .logo-wrapper {
+    margin-top: 12px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .brand-logo {
+    max-width: 130px !important;
+    border-radius: 12px !important;
   }
 
   .header-title {
@@ -569,20 +578,20 @@ body {
 
   .catalog-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 18px !important;
-    padding: 24px 0 !important;
+    gap: 20px !important;
+    padding: 32px 28px 48px !important;
     background-color: #0a0a0a !important;
   }
 
   .card {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
-    margin-top: 6px !important;
-    margin-bottom: 6px !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
     background: #141414 !important;
-    border: 1px solid #222222 !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
+    border: 1.5px solid #333333 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
   }
 
   .card-name {
@@ -597,14 +606,14 @@ body {
   .card-num {
     background: rgba(0, 0, 0, 0.85) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
 
   .category-divider-banner {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
-    margin-top: 16px !important;
-    margin-bottom: 16px !important;
+    margin-top: 28px !important;
+    margin-bottom: 28px !important;
     background: #141414 !important;
     border: 1.5px solid #ff5500 !important;
     color: #ffffff !important;
