@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Impresión PDF Identica a Pantalla
+   CATÁLOGO DE TENIS — Modo Oscuro + Tabs Redirección en PDF
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -136,7 +136,39 @@ body {
   line-height: 1.5;
 }
 
-/* ── PESTAÑAS DE CATEGORÍA ── */
+/* ── TABS DE NAVEGACIÓN Y REDIRECCIONAMIENTO EN HEADER ── */
+.header-nav-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.pdf-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 22px;
+  border-radius: 30px;
+  background: #1a1a1a;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1.5px solid var(--accent);
+  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+}
+
+.pdf-nav-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 85, 0, 0.4);
+}
+
+/* ── PESTAÑAS DE CATEGORÍA DE NAVEGADOR WEB ── */
 .category-tabs-bar {
   background: #121212;
   border-bottom: 1px solid var(--border);
@@ -517,13 +549,13 @@ body {
   .category-tabs { width: 100%; justify-content: space-around; }
 }
 
-/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN FULL BLEED (100% IDENTICO A LA WEB) ── */
+/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN FULL BLEED ── */
 @page {
   margin: 0;
   size: auto;
 }
 
-/* ── EXPORTACIÓN A PDF EXACTAMENTE IDENTICO A LA WEB ── */
+/* ── EXPORTACIÓN A PDF EXACTAMENTE IDENTICO A LA WEB Y CON TABS VISIBLES Y NAVEGABLES ── */
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -539,12 +571,31 @@ body {
     width: 100% !important;
   }
 
-  /* Ocultar elementos interactivos en el PDF */
+  /* Ocultar elementos interactivos como filtros pero mantener las tabs de navegación en el PDF */
   .category-tabs-bar,
   .controls,
   .results-bar,
   .whatsapp-float {
     display: none !important;
+  }
+
+  .header-nav-tabs {
+    display: flex !important;
+    gap: 14px !important;
+    justify-content: center !important;
+    margin-top: 18px !important;
+  }
+
+  .pdf-nav-btn {
+    display: inline-flex !important;
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1.5px solid #ff5500 !important;
+    padding: 8px 22px !important;
+    border-radius: 30px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
   }
 
   .site-header {
