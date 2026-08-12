@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Carga JSON + Ocultar Tallas en PDF
+   CATÁLOGO DE TENIS — Modo Oscuro + Redes Arriba del Logo + Margen Top PDF
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -34,19 +34,35 @@ body {
   min-height: 100vh;
 }
 
-/* ── BARRA SOCIAL SUPERIOR ── */
-.top-social-bar {
-  background: #111111;
+/* ── HEADER CENTRADO CON REDES SOCIALES ARRIBA DEL LOGO ── */
+.site-header {
+  padding: 36px 24px 32px;
   border-bottom: 1px solid var(--border);
-  padding: 12px 48px;
-  display: flex;
-  justify-content: flex-end;
+  background: #0d0d0d;
 }
 
-.social-links {
+.centered-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Redes Sociales Arriba del Logo */
+.header-social-links {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .social-btn {
@@ -78,28 +94,6 @@ body {
 
 .social-btn:hover svg {
   transform: scale(1.15);
-}
-
-/* ── HEADER CENTRADO CON LOGO ── */
-.site-header {
-  padding: 40px 24px 32px;
-  border-bottom: 1px solid var(--border);
-  background: #0d0d0d;
-}
-
-.centered-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .logo-wrapper {
@@ -506,7 +500,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .top-social-bar { padding: 10px 20px; justify-content: center; }
   .site-header { padding: 28px 20px; }
   .brand-logo { max-width: 110px; }
   .catalog-grid { grid-template-columns: repeat(2, 1fr); padding: 0 16px 24px; gap: 12px; }
@@ -518,14 +511,16 @@ body {
 @media (max-width: 480px) {
   .catalog-grid { grid-template-columns: 1fr; }
   .filter-group { min-width: 100%; }
-  .social-links { width: 100%; justify-content: center; }
+  .header-social-links { width: 100%; justify-content: center; }
   .category-tabs { width: 100%; justify-content: space-around; }
 }
 
-/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN ── */
+/* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN Y MARGEN TOP PARA PDF ── */
 @page {
-  margin: 0;
-  size: auto;
+  margin-top: 18mm;            /* Margen superior amplio en CADA página del PDF */
+  margin-bottom: 14mm;
+  margin-left: 10mm;
+  margin-right: 10mm;
 }
 
 /* ── EXPORTACIÓN A PDF EN FONDO NEGRO Y SIN TALLAS ── */
@@ -542,7 +537,7 @@ body {
     padding: 0 !important;
   }
 
-  .top-social-bar, .category-tabs-bar, .controls, .results-bar, .whatsapp-float {
+  .category-tabs-bar, .controls, .results-bar, .whatsapp-float {
     display: none !important;
   }
 
@@ -553,9 +548,15 @@ body {
   }
 
   .site-header {
-    padding: 32px 24px 20px !important;
+    padding: 24px 24px 16px !important;
     border-bottom: 1px solid #222222 !important;
     background: #0d0d0d !important;
+  }
+
+  .header-social-links {
+    display: flex !important;
+    margin-bottom: 16px !important;
+    justify-content: center !important;
   }
 
   .header-title {
@@ -568,14 +569,16 @@ body {
 
   .catalog-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 16px !important;
-    padding: 24px !important;
+    gap: 18px !important;
+    padding: 24px 0 !important;
     background-color: #0a0a0a !important;
   }
 
   .card {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
     background: #141414 !important;
     border: 1px solid #222222 !important;
     border-radius: 8px !important;
@@ -600,6 +603,8 @@ body {
   .category-divider-banner {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
     background: #141414 !important;
     border: 1.5px solid #ff5500 !important;
     color: #ffffff !important;
