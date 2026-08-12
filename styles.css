@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Sin Marca en la Tarjeta
+   CATÁLOGO DE TENIS — Modo Oscuro + Sin Bordes Naranjas
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -76,16 +76,15 @@ body {
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-dark);
   transition: all 0.2s ease;
 }
 
 .social-btn:hover {
-  background: var(--accent);
+  background: #252525;
   color: #ffffff;
-  border-color: var(--accent);
+  border-color: #555555;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255,85,0,0.3);
 }
 
 .social-btn svg {
@@ -115,7 +114,7 @@ body {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--accent);
+  color: var(--text-muted);
   margin-bottom: 6px;
   text-transform: uppercase;
 }
@@ -155,15 +154,15 @@ body {
   font-size: 12px;
   font-weight: 700;
   border-radius: 30px;
-  border: 1.5px solid var(--accent);
+  border: 1px solid var(--border-dark);
   transition: all 0.25s ease;
   letter-spacing: 0.05em;
 }
 
 .pdf-nav-btn:hover {
-  background: var(--accent);
+  background: #252525;
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(255, 85, 0, 0.4);
+  border-color: #555555;
   transform: translateY(-2px);
 }
 
@@ -205,9 +204,9 @@ body {
 }
 
 .cat-tab.active {
-  background: var(--accent);
+  background: #252525;
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(255, 85, 0, 0.4);
+  border: 1px solid #444444;
 }
 
 /* ── CONTROLES Y FILTROS ── */
@@ -236,12 +235,11 @@ body {
   background: var(--bg-card);
   color: var(--text-primary);
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s;
 }
 
 .search-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.2);
+  border-color: #555555;
 }
 
 .search-input::placeholder {
@@ -310,7 +308,7 @@ body {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--text-muted);
   text-transform: uppercase;
 }
 
@@ -326,21 +324,20 @@ body {
 .category-divider-banner {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%);
-  border: 1.5px solid var(--accent);
+  border: 1px solid var(--border-dark);
   border-radius: 12px;
   padding: 40px 32px;
   margin: 24px 0 12px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(255, 85, 0, 0.15);
 }
 
 .divider-tag {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--accent);
+  color: var(--text-muted);
   text-transform: uppercase;
 }
 
@@ -357,22 +354,20 @@ body {
   color: var(--text-muted);
 }
 
-/* ── CARD EN MODO OSCURO CON BORDES DEFINIDOS ── */
+/* ── CARD EN MODO OSCURO CON BORDES DISCRETOS ── */
 .card {
   background: var(--bg-card);
   border: 1.5px solid var(--border-dark);
   border-radius: var(--radius);
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   position: relative;
   overflow: hidden;
 }
 
 .card:hover {
   background: var(--bg-card-hover);
-  border-color: var(--accent);
-  box-shadow: var(--shadow-hover);
-  z-index: 5;
+  border-color: #555555;
   transform: translateY(-6px);
 }
 
@@ -422,13 +417,13 @@ body {
   font-family: var(--font-body);
   font-size: 9px;
   font-weight: 700;
-  color: var(--accent);
+  color: #ffffff;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(4px);
   padding: 3px 8px;
   border-radius: 4px;
   letter-spacing: 0.08em;
-  border: 1px solid rgba(255, 85, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Detalle del producto */
@@ -438,7 +433,7 @@ body {
 
 .card-top-row {
   display: flex;
-  justify-content: flex-end;    /* Conteo de tallas alineado a la derecha */
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 6px;
 }
@@ -447,7 +442,7 @@ body {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -476,7 +471,7 @@ body {
   right: 24px;
   background: #111111;
   color: #ffffff;
-  border: 1.5px solid var(--accent);
+  border: 1px solid #333333;
   padding: 12px 20px;
   border-radius: 50px;
   display: flex;
@@ -491,9 +486,9 @@ body {
 }
 
 .whatsapp-float:hover {
-  background: var(--accent);
+  background: #25d366;
+  color: #000000;
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(255, 85, 0, 0.4);
 }
 
 .whatsapp-float svg {
@@ -502,7 +497,7 @@ body {
 }
 
 .whatsapp-float:hover svg {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* ── NO RESULTS ── */
@@ -544,7 +539,7 @@ body {
   margin: 0;
 }
 
-/* ── EXPORTACIÓN A PDF EN FONDO NEGRO COMPLETO ── */
+/* ── EXPORTACIÓN A PDF EN FONDO NEGRO COMPLETO SIN BORDES NARANJAS ── */
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -566,7 +561,7 @@ body {
   /* TALLAS VISIBLES EN EL PDF */
   .card-sizes-count {
     display: inline-block !important;
-    color: #ff5500 !important;
+    color: #ffffff !important;
     font-size: 10px !important;
     font-weight: 700 !important;
   }
@@ -598,7 +593,7 @@ body {
   }
 
   .pdf-nav-btn {
-    border-color: #ff5500 !important;
+    border: 1px solid #333333 !important;
     color: #ffffff !important;
     background: #1a1a1a !important;
   }
@@ -636,7 +631,7 @@ body {
     background: #141414 !important;
     border: 1.5px solid #333333 !important;
     border-radius: 10px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+    box-shadow: none !important;
   }
 
   .card-name {
@@ -650,13 +645,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
 
+  .card-cat-badge {
+    background: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
   .category-divider-banner {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
     margin-top: 28px !important;
     margin-bottom: 28px !important;
     background: #141414 !important;
-    border: 1.5px solid #ff5500 !important;
+    border: 1px solid #333333 !important;
     color: #ffffff !important;
   }
 
