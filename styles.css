@@ -1,5 +1,5 @@
 /* =========================================================
-   CATÁLOGO DE TENIS — Modo Oscuro + Tabs Redirección en PDF
+   CATÁLOGO DE TENIS — Modo Oscuro + Estructura Completa Ordenada
    ========================================================= */
 
 /* ── Tokens Tema Oscuro ── */
@@ -56,7 +56,7 @@ body {
   margin: 0 auto;
 }
 
-/* Redes Sociales Arriba del Logo */
+/* Redes Sociales Arriba del Logo con separación */
 .header-social-links {
   display: flex;
   gap: 12px;
@@ -136,39 +136,38 @@ body {
   line-height: 1.5;
 }
 
-/* ── TABS DE NAVEGACIÓN Y REDIRECCIONAMIENTO EN HEADER ── */
+/* ── BOTONES DE NAVEGACIÓN RÁPIDA (#tenis-section / #gorras-section) ── */
 .header-nav-tabs {
   display: flex;
   gap: 12px;
-  justify-content: center;
   margin-top: 18px;
+  justify-content: center;
 }
 
 .pdf-nav-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 22px;
-  border-radius: 30px;
+  padding: 8px 20px;
   background: #1a1a1a;
   color: #ffffff;
   text-decoration: none;
-  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 700;
+  border-radius: 30px;
   border: 1.5px solid var(--accent);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   letter-spacing: 0.05em;
 }
 
 .pdf-nav-btn:hover {
   background: var(--accent);
   color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 85, 0, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(255, 85, 0, 0.4);
 }
 
-/* ── PESTAÑAS DE CATEGORÍA DE NAVEGADOR WEB ── */
+/* ── PESTAÑAS DE CATEGORÍA ── */
 .category-tabs-bar {
   background: #121212;
   border-bottom: 1px solid var(--border);
@@ -435,7 +434,6 @@ body {
 /* Detalle del producto */
 .card-info {
   padding: 16px;
-  background: #141414;
 }
 
 .card-top-row {
@@ -552,15 +550,13 @@ body {
 /* ── CONFIGURACIÓN DE PÁGINA IMPRESIÓN FULL BLEED ── */
 @page {
   margin: 0;
-  size: auto;
 }
 
-/* ── EXPORTACIÓN A PDF EXACTAMENTE IDENTICO A LA WEB Y CON TABS VISIBLES Y NAVEGABLES ── */
+/* ── EXPORTACIÓN A PDF EN FONDO NEGRO COMPLETO ── */
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
-    color-adjust: exact !important;
   }
 
   html, body {
@@ -568,55 +564,60 @@ body {
     color: #ffffff !important;
     margin: 0 !important;
     padding: 0 !important;
-    width: 100% !important;
+    min-height: 100vh !important;
   }
 
-  /* Ocultar elementos interactivos como filtros pero mantener las tabs de navegación en el PDF */
-  .category-tabs-bar,
-  .controls,
-  .results-bar,
-  .whatsapp-float {
+  .category-tabs-bar, .controls, .results-bar, .whatsapp-float {
     display: none !important;
   }
 
-  .header-nav-tabs {
-    display: flex !important;
-    gap: 14px !important;
-    justify-content: center !important;
-    margin-top: 18px !important;
+  /* TALLAS VISIBLES EN EL PDF */
+  .card-sizes-count {
+    display: inline-block !important;
+    color: #ff5500 !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
   }
 
-  .pdf-nav-btn {
-    display: inline-flex !important;
-    background: #1a1a1a !important;
-    color: #ffffff !important;
-    border: 1.5px solid #ff5500 !important;
-    padding: 8px 22px !important;
-    border-radius: 30px !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
+  .card-sizes-list {
+    display: block !important;
+    color: #b0b0b0 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    margin-top: 4px !important;
   }
 
   .site-header {
-    padding: 40px 24px 32px !important;
+    padding: 40px 24px 24px !important;
     border-bottom: 1px solid #222222 !important;
     background: #0d0d0d !important;
   }
 
   .header-social-links {
     display: flex !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 28px !important;
     justify-content: center !important;
   }
 
+  .header-nav-tabs {
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 16px !important;
+  }
+
+  .pdf-nav-btn {
+    border-color: #ff5500 !important;
+    color: #ffffff !important;
+    background: #1a1a1a !important;
+  }
+
   .logo-wrapper {
-    margin-top: 8px !important;
+    margin-top: 12px !important;
     margin-bottom: 20px !important;
   }
 
   .brand-logo {
-    max-width: 140px !important;
+    max-width: 130px !important;
     border-radius: 12px !important;
   }
 
@@ -629,121 +630,46 @@ body {
   }
 
   .catalog-grid {
-    display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 20px !important;
-    padding: 32px 48px 48px !important;
+    padding: 32px 28px 48px !important;
     background-color: #0a0a0a !important;
   }
 
   .card {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
     background: #141414 !important;
-    border: 1.5px solid #222222 !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    position: relative !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-  }
-
-  .card-img-wrap {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    background: #181818 !important;
-  }
-
-  .card-img-wrap img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .card-num {
-    position: absolute !important;
-    top: 12px !important;
-    left: 12px !important;
-    font-size: 11px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    background: rgba(0, 0, 0, 0.85) !important;
-    padding: 3px 8px !important;
-    border-radius: 4px !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  }
-
-  .card-cat-badge {
-    position: absolute !important;
-    top: 12px !important;
-    right: 12px !important;
-    font-size: 9px !important;
-    font-weight: 700 !important;
-    color: #ff5500 !important;
-    background: rgba(0, 0, 0, 0.85) !important;
-    padding: 3px 8px !important;
-    border-radius: 4px !important;
-    border: 1px solid rgba(255, 85, 0, 0.3) !important;
-  }
-
-  .card-info {
-    padding: 16px !important;
-    background: #141414 !important;
-  }
-
-  .card-top-row {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    margin-bottom: 6px !important;
-  }
-
-  .card-brand {
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.12em !important;
-    color: #8e8e93 !important;
-    text-transform: uppercase !important;
-  }
-
-  .card-sizes-count {
-    display: inline-block !important;
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.1em !important;
-    color: #ff5500 !important;
-    text-transform: uppercase !important;
+    border: 1.5px solid #333333 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
   }
 
   .card-name {
-    font-size: 19px !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.03em !important;
     color: #ffffff !important;
-    line-height: 1.15 !important;
-    margin-bottom: 6px !important;
-    text-transform: uppercase !important;
+    margin-bottom: 4px !important;
   }
 
-  .card-sizes-list {
-    display: block !important;
-    font-size: 12px !important;
-    color: #b0b0b0 !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.04em !important;
+  .card-brand {
+    color: #8e8e93 !important;
+  }
+
+  .card-num {
+    background: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
 
   .category-divider-banner {
-    grid-column: 1 / -1 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
-    background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%) !important;
+    margin-top: 28px !important;
+    margin-bottom: 28px !important;
+    background: #141414 !important;
     border: 1.5px solid #ff5500 !important;
-    border-radius: 12px !important;
-    padding: 40px 32px !important;
-    margin: 24px 0 12px !important;
-    text-align: center !important;
+    color: #ffffff !important;
   }
 
   .divider-title {
